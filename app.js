@@ -15,13 +15,13 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(session({
-  secret:"Whyusesecret",
+  secret:process.env.SECRET,
   resave:false,
   saveUninitialized:false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-mongoose.connect("mongodb://127.0.0.1:27017/userDB");
+mongoose.connect(process.env.URL_MONGOOSE);
 
 const userschema=new mongoose.Schema({
   email:String,
@@ -173,6 +173,6 @@ app.get("/logout",(req,res)=>{
 
 
 
-app.listen(Process.env.PORT||3000,()=>{
+app.listen(process.env.PORT||3000,()=>{
   console.log("connected to server 3000");
 });
