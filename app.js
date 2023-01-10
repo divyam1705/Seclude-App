@@ -97,11 +97,11 @@ app.get("/",(req,res)=>{
 });
 
 app.get("/login",(req,res)=>{
-  res.render("Login");
+  res.render("login");
 });
 
 app.get("/register",(req,res)=>{
-  res.render("Register");
+  res.render("register");
 });
 app.get("/secrets",(req,res)=>{
   User.find({secret:{$ne:null}},(err,foundsecrets)=>{
