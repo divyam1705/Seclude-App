@@ -93,7 +93,7 @@ app.get('/auth/google',
     });
 
 app.get("/",(req,res)=>{
-  res.render("Home");
+  res.render("home");
 });
 
 app.get("/login",(req,res)=>{
